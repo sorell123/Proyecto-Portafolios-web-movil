@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Adm aserorias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+  <ion-list>
+    <ion-item-sliding *ngFor="let task of tasks; let index = i">
+      <ion-item>
+        <ion-label>{{ task.descripcion}}</ion-label>
+        <ion-label>{{ task.tipoAsesoria}}</ion-label>
+        <ion-label>{{ task.empleado }}</ion-label>
+      </ion-item>
+      
+      <ion-buttons slot="end">
+        <ion-item-option (click)="deleteTask2(task.id, index)" color="danger">
+          <ion-icon name="trash"></ion-icon>
+        </ion-item-option>
+       </ion-buttons>
+
+    </ion-item-sliding>
+
+
+    
+
+
+
+  </ion-list>
+
+
+ 
+
+  
+
+  
+
+</ion-content>
+
+
