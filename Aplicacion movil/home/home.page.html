@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Login
+    </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="auth-form">
+  <ion-grid>
+    <ion-row>
+      <ion-col align-self-center>
+        <ion-button (click)="openAlert2()" expand="block" color="primary">Registrar</ion-button>
+
+        <span class="divider line one-line">or</span>
+
+        <span class="already">¿Ya eres Usuario??</span>
+
+        <ion-button [routerLink]="['/login']" expand="block" color="danger">Entrar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
