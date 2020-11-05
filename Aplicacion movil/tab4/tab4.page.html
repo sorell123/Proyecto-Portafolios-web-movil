@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Administrar Cuentas</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-buttons (click)="openAlert()">
+          <ion-icon  slot="icon-only" name="add-circle"></ion-icon>
+      </ion-buttons>
+     </ion-buttons>
+
+
+
+     
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+  <ion-list>
+    <ion-item-sliding *ngFor="let task of tasks; let index = i">
+      <ion-item>
+        <ion-label>{{ task.nombre }}</ion-label>
+        <ion-label>{{ task.apellidoPaterno }}</ion-label>
+        <ion-label>{{ task.tipoUsuario }}</ion-label>
+      </ion-item>
+      
+      <ion-buttons slot="end">
+        <ion-item-option (click)="deleteTask(task.id, index)" color="danger">
+          <ion-icon name="trash"></ion-icon>
+        </ion-item-option>
+       </ion-buttons>
+
+    </ion-item-sliding>
+
+
+    
+
+
+
+  </ion-list>
+
+
+ 
+
+  
+
+  
+
+</ion-content>
+
+
