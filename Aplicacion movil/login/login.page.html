@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+     
+    </ion-buttons>
+    
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding='true'>
+  <div class="center">
+  <img src="assets/img/home4.jpg" class="smallLogo"/>
+  
+  </div>
+  <form>
+  <ion-list>
+  <ion-item>
+  <ion-label position="stacked">Username</ion-label>
+  <ion-input autocomplete="off" type="text" name="username" [(ngModel)]="postData.username"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+  <ion-label position="stacked">Password</ion-label>
+  <ion-input autocomplete="off" type="password" name="password" [(ngModel)]="postData.password"></ion-input>
+  </ion-item>
+  
+
+  </ion-list>
+  <!-- <ion-button expand="block" share="round" color="success" (click)="loginAction()">Login</ion-button>  -->
+  
+  <ion-button [routerLink]="['/home']" expand="block" color="danger">Entrar</ion-button>
+  </form>
+  </ion-content>
