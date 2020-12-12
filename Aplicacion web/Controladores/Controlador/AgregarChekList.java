@@ -5,24 +5,25 @@
  */
 package Controlador;
 
-import Conexion.Conexion;
-import Modelo.Habitacion;
-import Modelo.Usuario;
-import Sql.Consultas;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import Conexion.*;
+import Modelo.*;
+/*import Sql.Consultas;*/
+import Sql.*;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 /**
  *
  * @author sjore
  */
-public class AgregarHabitacion extends HttpServlet {
+public class AgregarChekList extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -66,28 +67,31 @@ public class AgregarHabitacion extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        String situacion = request.getParameter("txtSituacion");
-        String tipoCama = request.getParameter("txtTipoCama");
-        String accesorio = request.getParameter("txtAccesorio");
-        int precio = Integer.parseInt(request.getParameter("txtPrecio"));
-         
+        
+        int rut = Integer.parseInt(request.getParameter("txtRut"));
+        String dv = request.getParameter("txtDv");
+        String nombreEm = request.getParameter("txtNombre");
+        String correo = request.getParameter("txtCorreo");
+        String usuario = request.getParameter("txtUsuario");
+        String pass = request.getParameter("txtContrasena");
+        int id = 0;
+        
         try{
-            
             Class.forName("oracle.jdbc.OracleDriver");  
             Conexion conecta = new Conexion();
             Consultas agrega = new Consultas();
-            Habitacion hab = new Habitacion(situacion,tipoCama,accesorio,precio);
-            conecta.getConnection(); 
-            agrega.agregaHabitacion(hab);
+            Cliente cli = new Cliente(rut,dv,nombreEm,correo,usuario,pass);
+            conecta.getConnection();  
+            agrega.agregaChekList(cli);
             String mensaje = "usuario agregado sin problema";
-            RequestDispatcher despacha = request.getRequestDispatcher("loginEmpleado.jsp");
-           
+            RequestDispatcher despacha = request.getRequestDispatcher("ValidarChekList.jsp");
+            
             despacha.forward(request, response);
         } catch (IOException | ClassNotFoundException | SQLException | ServletException e)
         {
             String mensaje="Excepcion de Sql: " + e;
            // request.setAttribute("mensaje", mensaje);
-            RequestDispatcher despacha = request.getRequestDispatcher("loginAdmin.jsp");
+            RequestDispatcher despacha = request.getRequestDispatcher("ValidarChekList.jsp");
             despacha.forward(request, response);
         }
     }

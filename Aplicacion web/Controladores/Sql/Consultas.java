@@ -35,7 +35,7 @@ public class Consultas {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 	LocalDate localDate = LocalDate.now();
         Statement st = conecta.getConnection().createStatement();
-        String sql = "insert into habitacion (situacion,tipo_cama,accesorios,precio) values ('"+h.getSituacion()+"','"+h.getTipoCama()+"','"+h.getAccesorio()+"',"+h.getPrecio()+")";
+        String sql = "INSERT INTO HABITACION (situacion,tipo_cama,accesorios,precio) VALUES ('"+h.getSituacion()+"','"+h.getTipoCama()+"','"+h.getAccesorio()+"',"+h.getPrecio()+")";
         st.execute(sql);
         conecta.getConnection().close();
         return h; 
@@ -69,6 +69,16 @@ public class Consultas {
         st.execute(sql);
         conecta.getConnection().close();
         return c; 
+    }
+    
+    public Cliente agregaChekList(Cliente k) throws SQLException
+    {
+        
+        Statement st = conecta.getConnection().createStatement();
+        String sql = "INSERT INTO CHEKLIST (RUT_EMPRESA, DV_EMPRESA, NOMBRE_EMPRESA, CORREO, USUARIO, PASS) VALUES ("+k.getRut_empresa()+",'"+k.getDv_empresa()+"','"+k.getNombre_empresa()+"','"+k.getCorreo()+"','"+k.getUsuario()+"','"+k.getPass()+"')";
+        st.execute(sql);
+        conecta.getConnection().close();
+        return k; 
     }
     
  
