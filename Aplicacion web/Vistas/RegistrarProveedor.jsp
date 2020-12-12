@@ -3,16 +3,7 @@
     Created on : 21-may-2019, 13:25:16
     Author     : sjore
 --%>
-<%@page session="true"%>
-<%@page import="java.sql.*"%>
-<%@page import="Conexion.Conexion"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="Modelo.Habitacion"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="Conexion.Conexion.*"%>
-<%@page import="Sql.Consultas"%>
-<%@page import="java.sql.DriverManager"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
@@ -64,18 +55,19 @@
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Mostrar</a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="MostrarHabitacion.jsp">Ticket</a>
-                                        <a class="dropdown-item" href="MostrarClientes.jsp">Clientes</a>
-                                        <a class="dropdown-item" href="MostrarProfesionales.jsp">Profecionales</a>
-
+                                        <a class="dropdown-item" href="MostrarHabitacion.jsp">Habitacion</a>
+                                        <a class="dropdown-item" href="MostrarFactura.jsp">Facturas</a>
+                                        <a class="dropdown-item" href="MostrarPedido.jsp">Pedidos</a>
+                                        <a class="dropdown-item" href="OrdenCompra.jsp">Orden de compra</a>
                                     </div>
                                 </li>
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Ingresar</a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="RegistrarEmpleado.jsp">Profesional</a>
-                                        <a class="dropdown-item" href="Habitacion.jsp">Tickets</a>
-
+                                        <a class="dropdown-item" href="RegistrarEmpleado.jsp">Empleado</a>
+                                        <a class="dropdown-item" href="RegistrarProveedor.jsp">Proveedor</a>
+                                        <a class="dropdown-item" href="Habitacion.jsp">Habitacion</a>
+                                        <a class="dropdown-item" href="AgregarPlato.jsp">Platillo</a>
                                     </div>
                                 </li>
                                 <!-- Dropdown -->
@@ -91,9 +83,8 @@
                     <div class="col-lg-10">
                         <div class="generic-banner-content">
                             <img src="img/Hotel.png" width="900" height="450">
-                            <h3 class="text-white">Mostrar todos los profesionales</h3>
+                            <h3 class="text-white">Clarita Hotel te invita a Registrarte y disfruta de nuestros beneficios</h3>
                             <a class="navbar-brand" href="#registro"><img src="img/flecha.png" width="70" height="30" ></a>
-
                         </div>							
                     </div>
                 </div>
@@ -102,84 +93,61 @@
         <!-- End banner Area -->
 
         <!-- About Generic Start -->
-        <div class="main-wrapper" id="registro">
+        <div class="main-wrapper">
 
             <!-- Start feature Area --><br><br><br><br>
-            <br><center><h1>Informacion de los profesionales</h1></center><br>
+            <br><center><h1>Registrate como proveedor Aqui</h1></center><br>
 
-            <% Connection con;
-                String url = "jdbc:oracle:thin:@localhost:1521:XE";
-                String Driver = "oracle.jdbc.OracleDriver";
-                String user = "system";
-                String clave = "Venard2112";
-                Class.forName(Driver);
-                con = DriverManager.getConnection(url, user, clave);
-                //listar
-                PreparedStatement ps;
-                ResultSet rs;
-                ps = con.prepareStatement("SELECT * FROM EMPLEADO");
-                rs = ps.executeQuery();
-                //tabla
-            %>
-            <br> <center><table border="3" width="1000">
-                    <tr>
-                        <th><center>ID</center></th>
-                    <th><center>Rut Profesional</center></th>
-                    <th><center>Dv</center></th>
-                    <th><center>Nombre</center></th>
-                    <th><center>Apellido</center></th>
-                    <th><center>usuario</center></th>
-                    
-                    </tr>
-                    <%
-                        while (rs.next()) {
-                    %>
-                    <tr>
-                        <td><center><%=rs.getInt("id")%></center></td>
-                    <td><center><%=rs.getInt("rut_empleado")%></center></td>
-                    <td><center><%=rs.getString("dv_empleado")%></center></td>
-                    <td><center><%=rs.getString("nombre_empleado")%></center></td>
-                    <td><center><%=rs.getString("apellido_empleado")%></center></td>
-                    <td><center><%=rs.getString("usuario")%></center></td>
-                                             
-                    </tr>
-                    <%}%> 
-                </table>
-                <br><br><br><br><br><br><br><br><br><br><br><br>
-                <!-- End feature Area -->
+            <div> <center><form action="#" id="registro">
+                        <input type="text" style="width : 500px; heigth : 500px" name="Rut" placeholder="Rut" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Rut'" required class="single-input">
+                        <br>
+                        <input type="password" style="width : 500px; heigth : 500px" name="Contrasena" placeholder="Contrasena" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contraseña'" required class="single-input">
+                        <br>
+                        <input type="text" style="width : 500px; heigth : 500px" name="Nombre" placeholder="Nombre" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nombre'" required class="single-input">
+                        <br>
+                        <input type="text" style="width : 500px; heigth : 500px" name="Apellido" placeholder="Apellido" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Apellido'" required class="single-input">
+                        <br>
+                        <input type="text" style="width : 500px; heigth : 500px" name="Contrasena" placeholder="Contrasena" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contraseña'" required class="single-input">
+                        <br>
+                        <input type="text" style="width : 500px; heigth : 500px" name="Correo" placeholder="Correo" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Correo'" required class="single-input">
+                        <br>
+                        <input type="submit" name="btnIngresar" value="Registrar" class="primary-btn text-uppercase"> &nbsp;&nbsp;<input type="reset" value="Otro Ingreso" class="primary-btn text-uppercase">
+                    </form></center></div> 
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+            <!-- End feature Area -->
 
-                <!-- Start Generic Area -->
+            <!-- Start Generic Area -->
 
-                <!-- End Generic Start -->		
+            <!-- End Generic Start -->		
 
-                <!-- start footer Area -->		
-                <footer class="footer-area section-gap">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-5 col-md-6 col-sm-6">
-                                <div class="single-footer-widget">
-                                    <h6>Sobre Nosotros</h6>
-                                    <p>
-                                        Pequeña pime expenta en hoteleria a baja escala Fundada por la señora Clarita y bautizada con el nombre de "Clarita Hotel".
-                                    </p>
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                    <p class="footer-text">Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Esta plantilla está hecha con <i class="fa fa-heart-o" aria-hidden="true"></i> por <a href="" target="_blank">Maxvarell</a></p>
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            <!-- start footer Area -->		
+            <footer class="footer-area section-gap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <div class="single-footer-widget">
+                                <h6>Sobre Nosotros</h6>
+                                <p>
+                                    Pequeña pime expenta en hoteleria a baja escala Fundada por la señora Clarita y bautizada con el nombre de "Clarita Hotel".
+                                </p>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                <p class="footer-text">Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Esta plantilla está hecha con <i class="fa fa-heart-o" aria-hidden="true"></i> por <a href="" target="_blank">Maxvarell</a></p>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+                            <div class="single-footer-widget">
+                                <h6>Clarita Hotel</h6>
+                                <div class="footer-social d-flex align-items-center">
+                                    <img src="img/logo.png" alt="" width="200" height="150">
                                 </div>
                             </div>
-
-                            <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
-                                <div class="single-footer-widget">
-                                    <h6>Clarita Hotel</h6>
-                                    <div class="footer-social d-flex align-items-center">
-                                        <img src="img/logo.png" alt="" width="200" height="150">
-                                    </div>
-                                </div>
-                            </div>							
-                        </div>
+                        </div>							
                     </div>
-                </footer>	
-                <!-- End footer Area -->		
+                </div>
+            </footer>	
+            <!-- End footer Area -->		
 
         </div>
         <script src="js/vendor/jquery-2.2.4.min.js"></script>

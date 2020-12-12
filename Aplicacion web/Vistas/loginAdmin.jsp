@@ -54,17 +54,16 @@
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Mostrar</a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="MostrarHabitacion.jsp">Ticket</a>
-                                        <a class="dropdown-item" href="MostrarFactura.jsp">Clientes</a>
-                                        <a class="dropdown-item" href="MostrarProfesionales.jsp">Profecionales</a>
+                                        <a class="dropdown-item" href="MostrarHabitacion.jsp">ChekList</a>
+                                        <a class="dropdown-item" href="MostrarClientes.jsp">Clientes</a>
+                                        <a class="dropdown-item" href="MostrarProfesionales.jsp">Profesionales</a>
 
                                     </div>
                                 </li>
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Ingresar</a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="RegistrarEmpleado.jsp">Profecional</a>
-                                        <a class="dropdown-item" href="loginAdmin.jsp">Tickets</a>
+                                        <a class="dropdown-item" href="RegistrarEmpleado.jsp">Profesional</a>
 
                                     </div>
                                 </li>

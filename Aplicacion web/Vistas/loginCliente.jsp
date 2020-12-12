@@ -52,8 +52,8 @@
                         <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li><a href="loginCliente.jsp">Inicio</a></li>
-                                <li><a href="OrdenCompra.jsp">Tickets</a></li>
-                                <li><a href="ModificiarInfo.jsp">Modificar Informacion</a></li>
+                                <li><a href="MostrarCheklistCli.jsp">ver ChekList</a></li>
+                                <li><a href="IngresarCheklistCli.jsp">Ingresar ChekList</a></li>  
                                 <!-- Dropdown -->
 
                             </ul>

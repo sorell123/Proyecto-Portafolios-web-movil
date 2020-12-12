@@ -42,39 +42,19 @@
             <header class="default-header">
                 <nav class="navbar navbar-expand-lg  navbar-light">
                     <div class="container">
-                        <a class="navbar-brand" href="loginEmpleado.jsp">
+                        <a class="navbar-brand" href="loginProveedor.jsp">
                             <img src="img/logo.png" alt="" width="140" height="80">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="text-white lnr lnr-menu"></span>
                         </button>
-                          <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+
+                        <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                             <ul class="navbar-nav">
-                                <li><a href="loginEmpleado.jsp">Inicio</a></li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Mostrar</a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="MostrarCheklist.jsp">ChekList</a>
-                                        <a class="dropdown-item" href="MostrarCapacitacion.jsp">Capacitacion</a>
-                                        <a class="dropdown-item" href="MostrarAsesoria.jsp">Asesoria</a>
-                                        <a class="dropdown-item" href="MostrarVisita.jsp">Visitas</a>
-
-                                    </div>
-                                </li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Ingresar</a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="IngresarCheklist.jsp">ChekList</a>
-                                        <a class="dropdown-item" href="IngresarCapacitacion.jsp">Capacitacion</a>
-                                        <a class="dropdown-item" href="IngresarAsesoria.jsp">Asesoria</a>
-                                        <a class="dropdown-item" href="IngresarVisita.jsp">Visitas</a>
-                                    </div>
-                                </li>
-                                <!-- Dropdown -->
-
+                                <li><a href="loginProveedor.jsp">Inicio</a></li>
+                                <li><a href="HabitacionPro.jsp">Visualizar Ticket</a></li>
                             </ul>
-                        </div>	
-					
+                        </div>						
                     </div>
                 </nav>
             </header>
@@ -83,10 +63,8 @@
                 <div class="row height align-items-center justify-content-center">
                     <div class="col-lg-10">
                         <div class="generic-banner-content"><br>
-                            <h3 class="text-white">Bienvenido ${usuario} a Cuenta Profesional</h3>
-                            <img src="img/profecional.png" width="750" height="400" >
-
-
+                            <h3 class="text-white">Bienvenido ${usuario} a la cuenta Proveedor</h3>
+                            <img src="img/Hotel.png" width="750" height="400" >
                         </div>							
                     </div>
                 </div>
@@ -102,9 +80,9 @@
 
         <!-- End Generic Start -->		
         <div class="main-wrapper" id="ingreso">
-            <div class="main-wrapper" id="ingreso">
-                <!-- start footer Area -->		
-                <footer class="footer-area section-gap">
+
+            <!-- start footer Area -->		
+            <footer class="footer-area section-gap">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5 col-md-6 col-sm-6">
@@ -130,17 +108,17 @@
                 </div>
             </div>
         </footer>	
-                <!-- End footer Area -->		
+            <!-- End footer Area -->		
 
-            </div>
-            <script src="js/vendor/jquery-2.2.4.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-            <script src="js/vendor/bootstrap.min.js"></script>
-            <script src="js/jquery.ajaxchimp.min.js"></script>
-            <script src="js/jquery.sticky.js"></script>
-            <script src="js/owl.carousel.min.js"></script>
-            <script src="js/jquery.nice-select.min.js"></script>
-            <script src="js/jquery.magnific-popup.min.js"></script>
-            <script src="js/main.js"></script>
+        </div>
+        <script src="js/vendor/jquery-2.2.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/jquery.ajaxchimp.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.nice-select.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>

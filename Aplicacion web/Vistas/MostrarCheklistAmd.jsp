@@ -48,10 +48,10 @@
         <!-- Start banner Area -->
         <section class="generic-banner relative">
             <!-- Start Header Area -->
-            <header class="default-header">
+             <header class="default-header">
                 <nav class="navbar navbar-expand-lg  navbar-light">
                     <div class="container">
-                        <a class="navbar-brand" href="loginAdmin.jsp">
+                        <a class="navbar-brand" href="index.jsp">
                             <img src="img/logo.png" alt="" width="140" height="80">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,24 +60,9 @@
 
                         <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                             <ul class="navbar-nav">
-                                <li><a href="loginAdmin.jsp">Inicio</a></li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Mostrar</a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="MostrarHabitacion.jsp">Ticket</a>
-                                        <a class="dropdown-item" href="MostrarClientes.jsp">Clientes</a>
-                                        <a class="dropdown-item" href="MostrarProfesionales.jsp">Profecionales</a>
-
-                                    </div>
-                                </li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Ingresar</a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="RegistrarEmpleado.jsp">Profesional</a>
-                                        <a class="dropdown-item" href="Habitacion.jsp">Tickets</a>
-
-                                    </div>
-                                </li>
+                                <li><a href="loginCliente.jsp">Inicio</a></li>
+                                <li><a href="MostrarCheklistCli.jsp">ver ChekList</a></li>
+                                <li><a href="IngresarCheklistCli.jsp">Ingresar ChekList</a></li>  
                                 <!-- Dropdown -->
 
                             </ul>
@@ -91,7 +76,7 @@
                     <div class="col-lg-10">
                         <div class="generic-banner-content">
                             <img src="img/Hotel.png" width="900" height="450">
-                            <h3 class="text-white">Mostrar todos los profesionales</h3>
+                            <h3 class="text-white">Mostrar todos los cheklist</h3>
                             <a class="navbar-brand" href="#registro"><img src="img/flecha.png" width="70" height="30" ></a>
 
                         </div>							
@@ -105,7 +90,7 @@
         <div class="main-wrapper" id="registro">
 
             <!-- Start feature Area --><br><br><br><br>
-            <br><center><h1>Informacion de los profesionales</h1></center><br>
+            <br><center><h1>Informacion de los CheckList</h1></center><br>
 
             <% Connection con;
                 String url = "jdbc:oracle:thin:@localhost:1521:XE";
@@ -117,31 +102,36 @@
                 //listar
                 PreparedStatement ps;
                 ResultSet rs;
-                ps = con.prepareStatement("SELECT * FROM EMPLEADO");
+                ps = con.prepareStatement("SELECT * FROM CLIENTE3");
                 rs = ps.executeQuery();
                 //tabla
             %>
             <br> <center><table border="3" width="1000">
                     <tr>
                         <th><center>ID</center></th>
-                    <th><center>Rut Profesional</center></th>
-                    <th><center>Dv</center></th>
-                    <th><center>Nombre</center></th>
-                    <th><center>Apellido</center></th>
-                    <th><center>usuario</center></th>
-                    
+                    <th><center>Tiempo trancurrido(horas)</center></th>
+                    <th><center>Descripcion</center></th>
+                    <th><center>Nombre Profecional</center></th>
+                    <th><center>Correo</center></th>
+                    <th><center>Nivel</center></th>
+                    <th><center>Area</center></th>
+                    <th><center>Contestar ChekList</center></th>
                     </tr>
                     <%
                         while (rs.next()) {
                     %>
                     <tr>
                         <td><center><%=rs.getInt("id")%></center></td>
-                    <td><center><%=rs.getInt("rut_empleado")%></center></td>
-                    <td><center><%=rs.getString("dv_empleado")%></center></td>
-                    <td><center><%=rs.getString("nombre_empleado")%></center></td>
-                    <td><center><%=rs.getString("apellido_empleado")%></center></td>
+                    <td><center><%=rs.getString("rut_empresa")%></center></td>
+                    <td><center><%=rs.getString("dv_empresa")%></center></td>
+                    <td><center><%=rs.getString("nombre_empresa")%></center></td>
+                    <td><center><%=rs.getString("correo")%></center></td>
                     <td><center><%=rs.getString("usuario")%></center></td>
-                                             
+                    <td><center><%=rs.getString("pass")%></center></td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;
+                    <center> <a href="ContestarCli.jsp"><img src="img/editar.png" width="40" height="40"></a></center>
+                    </td>                         
                     </tr>
                     <%}%> 
                 </table>

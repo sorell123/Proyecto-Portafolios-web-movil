@@ -1,13 +1,14 @@
 <%-- 
-    Document   : Registrar
-    Created on : 21-may-2019, 13:25:16
-    Author     : sjore
+    Document   : MostrarComedor
+    Created on : 10-07-2019, 13:05:21
+    Author     : Richenz
 --%>
+
 <%@page session="true"%>
 <%@page import="java.sql.*"%>
 <%@page import="Conexion.Conexion"%>
 <%@page import="java.sql.ResultSet"%>
-<%@page import="Modelo.Habitacion"%>
+<%@page import="Modelo.Comedor"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="Conexion.Conexion.*"%>
@@ -64,18 +65,19 @@
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Mostrar</a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="MostrarHabitacion.jsp">Ticket</a>
-                                        <a class="dropdown-item" href="MostrarClientes.jsp">Clientes</a>
-                                        <a class="dropdown-item" href="MostrarProfesionales.jsp">Profecionales</a>
-
+                                        <a class="dropdown-item" href="MostrarHabitacion.jsp">Habitacion</a>
+                                        <a class="dropdown-item" href="MostrarFactura.jsp">Facturas</a>
+                                        <a class="dropdown-item" href="elements.jsp">Pedidos</a>
+                                        <a class="dropdown-item" href="OrdenCompra.jsp">Orden de compra</a>
                                     </div>
                                 </li>
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Ingresar</a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="RegistrarEmpleado.jsp">Profesional</a>
-                                        <a class="dropdown-item" href="Habitacion.jsp">Tickets</a>
-
+                                        <a class="dropdown-item" href="RegistrarEmpleado.jsp">Empleado</a>
+                                        <a class="dropdown-item" href="RegistrarProveedor.jsp">Proveedor</a>
+                                        <a class="dropdown-item" href="Habitacion.jsp">Habitacion</a>
+                                        <a class="dropdown-item" href="AgregarPlato.jsp">Platillo</a>
                                     </div>
                                 </li>
                                 <!-- Dropdown -->
@@ -91,7 +93,7 @@
                     <div class="col-lg-10">
                         <div class="generic-banner-content">
                             <img src="img/Hotel.png" width="900" height="450">
-                            <h3 class="text-white">Mostrar todos los profesionales</h3>
+                            <h3 class="text-white">Mostrar todos los comedores</h3>
                             <a class="navbar-brand" href="#registro"><img src="img/flecha.png" width="70" height="30" ></a>
 
                         </div>							
@@ -105,10 +107,10 @@
         <div class="main-wrapper" id="registro">
 
             <!-- Start feature Area --><br><br><br><br>
-            <br><center><h1>Informacion de los profesionales</h1></center><br>
+            <br><center><h1>Informacion de Comedores</h1></center><br>
 
             <% Connection con;
-                String url = "jdbc:oracle:thin:@localhost:1521:XE";
+                String url = "jdbc:oracle:thin:@localhost:1521:orcl";
                 String Driver = "oracle.jdbc.OracleDriver";
                 String user = "system";
                 String clave = "Venard2112";
@@ -117,31 +119,29 @@
                 //listar
                 PreparedStatement ps;
                 ResultSet rs;
-                ps = con.prepareStatement("SELECT * FROM EMPLEADO");
+                ps = con.prepareStatement("select * from comedor");
                 rs = ps.executeQuery();
                 //tabla
             %>
             <br> <center><table border="3" width="1000">
                     <tr>
                         <th><center>ID</center></th>
-                    <th><center>Rut Profesional</center></th>
-                    <th><center>Dv</center></th>
-                    <th><center>Nombre</center></th>
-                    <th><center>Apellido</center></th>
-                    <th><center>usuario</center></th>
-                    
+                    <th><center>Tipo servicio</center></th>
+                    <th><center>Precio</center></th>
+                    <th><center>Eliminar / Editar</center></th>
                     </tr>
                     <%
                         while (rs.next()) {
                     %>
                     <tr>
                         <td><center><%=rs.getInt("id")%></center></td>
-                    <td><center><%=rs.getInt("rut_empleado")%></center></td>
-                    <td><center><%=rs.getString("dv_empleado")%></center></td>
-                    <td><center><%=rs.getString("nombre_empleado")%></center></td>
-                    <td><center><%=rs.getString("apellido_empleado")%></center></td>
-                    <td><center><%=rs.getString("usuario")%></center></td>
-                                             
+                    <td><center><%=rs.getString("tipo_servicio")%></center></td>
+                    <td><center><%=rs.getInt("precio")%></center></td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;
+                    <center> <a href="EliminarHabitacion.jsp?id=<%=rs.getString("id")%>" onclick="confirm('¡¡ESTA SEGURO QUE DESEA ELIMINAR LA HABITACION!!')" ><img src="img/eliminar.png" width="40" height="40"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="EliminarVuelo.jsp?ID=<%=rs.getString("id")%>" onclick="confirm('¡¡ESTA SEGURO QUE DESEA ELIMINAR LA HABITACION!!')"><img src="img/editar.png" width="40" height="40"></a></center>
+                    </td>                         
                     </tr>
                     <%}%> 
                 </table>

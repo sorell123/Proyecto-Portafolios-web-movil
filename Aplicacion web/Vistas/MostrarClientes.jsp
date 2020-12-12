@@ -73,7 +73,7 @@
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Ingresar</a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="RegistrarEmpleado.jsp">Profesional</a>
+                                        <a class="dropdown-item" href="RegistrarEmpleado.jsp">Profecional</a>
                                         <a class="dropdown-item" href="Habitacion.jsp">Tickets</a>
 
                                     </div>
@@ -91,7 +91,7 @@
                     <div class="col-lg-10">
                         <div class="generic-banner-content">
                             <img src="img/Hotel.png" width="900" height="450">
-                            <h3 class="text-white">Mostrar todos los profesionales</h3>
+                            <h3 class="text-white">Mostrar todas los clientes</h3>
                             <a class="navbar-brand" href="#registro"><img src="img/flecha.png" width="70" height="30" ></a>
 
                         </div>							
@@ -105,7 +105,7 @@
         <div class="main-wrapper" id="registro">
 
             <!-- Start feature Area --><br><br><br><br>
-            <br><center><h1>Informacion de los profesionales</h1></center><br>
+            <br><center><h1>Informacion de clientes</h1></center><br>
 
             <% Connection con;
                 String url = "jdbc:oracle:thin:@localhost:1521:XE";
@@ -117,31 +117,31 @@
                 //listar
                 PreparedStatement ps;
                 ResultSet rs;
-                ps = con.prepareStatement("SELECT * FROM EMPLEADO");
+                ps = con.prepareStatement("SELECT * FROM CLIENTE");
                 rs = ps.executeQuery();
                 //tabla
             %>
             <br> <center><table border="3" width="1000">
                     <tr>
                         <th><center>ID</center></th>
-                    <th><center>Rut Profesional</center></th>
+                    <th><center>Rut Profecional</center></th>
                     <th><center>Dv</center></th>
                     <th><center>Nombre</center></th>
                     <th><center>Apellido</center></th>
                     <th><center>usuario</center></th>
-                    
+
                     </tr>
                     <%
                         while (rs.next()) {
                     %>
                     <tr>
                         <td><center><%=rs.getInt("id")%></center></td>
-                    <td><center><%=rs.getInt("rut_empleado")%></center></td>
-                    <td><center><%=rs.getString("dv_empleado")%></center></td>
-                    <td><center><%=rs.getString("nombre_empleado")%></center></td>
-                    <td><center><%=rs.getString("apellido_empleado")%></center></td>
+                    <td><center><%=rs.getString("rut_empresa")%></center></td>
+                    <td><center><%=rs.getString("dv_empresa")%></center></td>
+                    <td><center><%=rs.getString("nombre_empresa")%></center></td>
+                    <td><center><%=rs.getString("correo")%></center></td>
                     <td><center><%=rs.getString("usuario")%></center></td>
-                                             
+                                         
                     </tr>
                     <%}%> 
                 </table>

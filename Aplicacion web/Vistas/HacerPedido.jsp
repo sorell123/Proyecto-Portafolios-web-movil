@@ -42,7 +42,7 @@
             <header class="default-header">
                 <nav class="navbar navbar-expand-lg  navbar-light">
                     <div class="container">
-                        <a class="navbar-brand" href="loginAdmin.jsp">
+                        <a class="navbar-brand" href="index.jsp">
                             <img src="img/logo.png" alt="" width="140" height="80">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,24 +51,9 @@
 
                         <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
                             <ul class="navbar-nav">
-                                <li><a href="loginAdmin.jsp">Inicio</a></li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Mostrar</a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="MostrarHabitacion.jsp">Ticket</a>
-                                        <a class="dropdown-item" href="MostrarClientes.jsp">Clientes</a>
-                                        <a class="dropdown-item" href="MostrarProfesionales.jsp">profesionales</a>
-
-                                    </div>
-                                </li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Ingresar</a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="RegistrarEmpleado.jsp">Profecional</a>
-                                        <a class="dropdown-item" href="Habitacion.jsp">Tickets</a>
-
-                                    </div>
-                                </li>
+                                <li><a href="index.jsp">Inicio</a></li>
+                                <li><a href="HacerPedido.jsp">Hacer Pedido</a></li>
+                                <li><a href="RecibirPedido.jsp">Recibir Pedido</a></li>
                                 <!-- Dropdown -->
 
                             </ul>
@@ -81,9 +66,9 @@
                 <div class="row height align-items-center justify-content-center">
                     <div class="col-lg-10">
                         <div class="generic-banner-content">
-                            <img src="img/Hotel.png" width="900" height="450" >
-                            <h3 class="text-white">Perfil Administrador</h3>
-                            <a class="navbar-brand" href="#registro"><img src="img/flecha.png" width="70" height="30" ></a>
+                            <img src="img/Hotel.png" width="750" height="400" >
+                            <h4 class="text-white">Realiza tus pedidos aqui</h4>
+                            <a class="navbar-brand" href="#ingreso"><img src="img/flecha.png" width="70" height="30" ></a>
 
                         </div>							
                     </div>
@@ -93,32 +78,29 @@
         <!-- End banner Area -->
 
         <!-- About Generic Start -->
-        <div class="main-wrapper" id="registro">
+
+        <!-- End feature Area -->
+
+        <!-- Start Generic Area -->
+
+        <!-- End Generic Start -->		
+        <div class="main-wrapper" id="ingreso">
 
             <!-- Start feature Area --><br><br><br><br>
-            <br><center><h1>Registrate profesionales aqui</h1></center><br>
+            <br><center><h1>Hacer pedidos</h1></center><br>
 
-            <div> <center><form action="AgregarEmpleado" method="post">
-                        <input type="text" style="width : 500px; heigth : 500px" name="txtRut" placeholder="Rut" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Rut'" required class="single-input">
-                        <input type="text" style="width : 60px; heigth : 60px" name="txtDv" placeholder="DV" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Dv'" required class="single-input">
-                        <br>
-                        <input type="text" style="width : 500px; heigth : 500px" name="txtNombre" placeholder="Nombre" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nombre'" required class="single-input">
-                        <br>
-                        <input type="text" style="width : 500px; heigth : 500px" name="txtApellido" placeholder="Apellido" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Apellido'" required class="single-input">
-                        <br>
-                        <input type="text" style="width : 500px; heigth : 500px" name="txtUsuario" placeholder="Usuario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Usuario'" required class="single-input">
-                        <br>
-                        <input type="Password" style="width : 500px; heigth : 500px" name="txtPassword" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required class="single-input">
-                        <br>
+            <div> <center><form action="#">
+                        <input type="text" style="width : 500px; heigth : 500px" name="Producto" placeholder="Producto" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Producto'" required class="single-input"><br>
+                        <input type="text" style="width : 500px; heigth : 500px" name="Proveedor" placeholder="Proveedor" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Proveedor'" required class="single-input"><br>
+                        <input type="text" style="width : 500px; heigth : 500px" name="Cantidad" placeholder="Cantidad" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cantidad'" required class="single-input"><br>
+                        <input type="text" style="width : 500px; heigth : 500px" name="Fecha" placeholder="Fecha limite" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Fecha'" required class="single-input"><br>
+                        <select style="width : 500px; heigth : 500px" name="Estado" placeholder="Estado" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Estado'" required class="single-input">
+                            <option value="volvo">En proceso</option>
+                            <option value="saab">Recibido</option>
+                        </select> <br>
                         <input type="submit" name="btnIngresar" value="Registrar" class="primary-btn text-uppercase"> &nbsp;&nbsp;<input type="reset" value="Otro Ingreso" class="primary-btn text-uppercase">
                     </form></center></div> 
-            <br><br><br><br><br><br><br><br><br><br><br><br>
-            <!-- End feature Area -->
-
-            <!-- Start Generic Area -->
-
-            <!-- End Generic Start -->		
-
+            <br><br><br><br><br><br><br>
             <!-- start footer Area -->		
             <footer class="footer-area section-gap">
                 <div class="container">
